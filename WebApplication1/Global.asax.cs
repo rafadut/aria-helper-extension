@@ -16,6 +16,9 @@ namespace WebApplication1
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
+            ViewEngines.Engines.Add(new CustomViewEngine());
+            ModelBinders.Binders.DefaultBinder = new DropDownDateTimeBinder();
+            ModelBinders.Binders.Add(typeof(DropDownDateTimeBinder), new DropDownDateTimeBinder());
         }
     }
 }
